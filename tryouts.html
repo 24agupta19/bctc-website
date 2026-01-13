@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home</title>
+  <title>Tryouts - Badger Competitive Tennis Club</title>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body>
+<body class="tryouts-page">
 
   <nav>
     <div class="nav-container">
@@ -24,11 +24,43 @@
   </nav>
 
   <main class="content">
-    <h2>Welcome</h2>
-    <p>
-      Welcome to the official website of [Your Team Name].
-      We are committed to excellence and development.
-    </p>
+    <div class="form-container">
+      <h2>Badger Competitive Tennis Tryout Signup Form</h2>
+      <p class="location">Location: Nielsen Tennis Stadium</p>
+      
+      <div class="tryouts-open-message">
+        <p><strong>Tryouts are now open!</strong> Fill out this form to sign up.</p>
+      </div>
+      
+      <form id="tryout-form" class="tryout-form">
+        <div class="safety-notice">
+          <p><strong>(Required) Fill out this form for Safety Reasons</strong></p>
+          <p>If you do not fill out this form, we cannot accept you.</p>
+        </div>
+        
+        <div class="form-group">
+          <label for="name">Name (First and Last) <span class="required">*</span></label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Student email (example@wisc.edu) <span class="required">*</span></label>
+          <input type="email" id="email" name="email" placeholder="example@wisc.edu" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="utr">UTR: <span class="required">*</span></label>
+          <input type="text" id="utr" name="utr" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="favorite-player">Favorite tennis player:</label>
+          <input type="text" id="favorite-player" name="favorite-player">
+        </div>
+        
+        <button type="submit" class="submit-button">Submit</button>
+      </form>
+    </div>
   </main>
 
   <footer>

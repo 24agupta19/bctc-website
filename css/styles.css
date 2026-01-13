@@ -93,7 +93,7 @@ nav {
 }
 
 .nav-container {
-  width: 80%;
+  width: 85%;
   max-width: 1800px;
   margin: auto;
   display: flex;
@@ -135,6 +135,23 @@ nav a:hover {
   color: #333;
 }
 
+/* Tryouts page specific navbar styles */
+.tryouts-page nav {
+  border-bottom: 1px solid #ddd;
+}
+
+.tryouts-page nav .logo {
+  color: #333;
+}
+
+.tryouts-page nav a {
+  color: #333;
+}
+
+.tryouts-page nav a:hover {
+  color: #0066cc;
+}
+
 .hero-content {
   position: relative;
   z-index: 10;
@@ -153,8 +170,8 @@ nav a:hover {
   font-weight: 700;
   color: white;
   margin-bottom: 40px;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
   line-height: 1.2;
+  max-width: 80%;
 }
 
 .tryouts-button {
@@ -222,6 +239,184 @@ footer {
   border-radius: 6px;
 }
 
+.form-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-container h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.location {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.warning-message,
+.tryouts-full-message {
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  border-radius: 6px;
+  padding: 15px;
+  margin: 20px 0;
+}
+
+.warning-message p,
+.tryouts-full-message p {
+  margin: 0;
+  color: #856404;
+}
+
+.warning-message a,
+.tryouts-full-message a {
+  color: #856404;
+  text-decoration: underline;
+}
+
+.tryouts-open-message {
+  background: #d4edda;
+  border: 1px solid #28a745;
+  border-radius: 6px;
+  padding: 15px;
+  margin: 20px 0;
+}
+
+.tryouts-open-message p {
+  margin: 0;
+  color: #155724;
+}
+
+.google-signin-note {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 15px 0;
+}
+
+.google-signin-note a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.google-signin-note a:hover {
+  text-decoration: underline;
+}
+
+.required-note {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 15px 0 25px 0;
+}
+
+.safety-notice {
+  background: #e7f3ff;
+  border-left: 4px solid #0066cc;
+  padding: 15px;
+  margin: 20px 0 30px 0;
+  border-radius: 4px;
+}
+
+.safety-notice p {
+  margin: 5px 0;
+  color: #333;
+}
+
+.safety-notice p:first-child {
+  font-weight: bold;
+}
+
+.tryout-form {
+  margin-top: 30px;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 1rem;
+}
+
+.required {
+  color: #d32f2f;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: 'Cabinet Grotesk', sans-serif;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.radio-label:hover {
+  background-color: #f5f5f5;
+  border-color: #0066cc;
+}
+
+.radio-label input[type="radio"] {
+  margin-right: 10px;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+.submit-button {
+  background: #0066cc;
+  color: white;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'Cabinet Grotesk', sans-serif;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.submit-button:hover {
+  background: #0052a3;
+}
+
+.submit-button:active {
+  transform: scale(0.98);
+}
+
 @media (max-width: 768px) {
   .hero-title {
     font-size: 2.5rem;
@@ -231,5 +426,19 @@ footer {
   .tryouts-button {
     font-size: 1rem;
     padding: 15px 30px;
+  }
+  
+  .form-container h2 {
+    font-size: 1.5rem;
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="email"] {
+    font-size: 0.95rem;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 16px;
   }
 }
