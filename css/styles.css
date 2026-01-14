@@ -72,6 +72,26 @@ body {
   font-family: 'Cabinet Grotesk', sans-serif;
 }
 
+.home-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-page .hero-content {
+  flex: 1;
+}
+
+.home-page footer {
+  margin-top: auto;
+  background: transparent;
+}
+
+.home-page footer p {
+  color: white;
+  
+}
+
 .video-hero {
   position: fixed;
   top: 0;
@@ -115,7 +135,7 @@ nav {
 }
 
 .logo-img {
-  height: 40px;
+  height: 48px;
   width: auto;
   padding-right: 10px;
 }
@@ -123,6 +143,7 @@ nav {
 .logo {
   color: white;
   margin: 0;
+  font-size: 1.75rem;
 }
 
 .logo-container a {
@@ -133,14 +154,14 @@ nav {
 nav ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 25px;
 }
 
 nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
 }
 
 nav a:hover {
@@ -303,8 +324,8 @@ footer p {
 }
 
 .tryouts-open-message {
-  background: #d4edda;
-  border: 1px solid #28a745;
+  background: #e7f3ff;
+  border: 1px solid #0066cc;
   border-radius: 6px;
   padding: 15px;
   margin: 20px 0;
@@ -312,7 +333,7 @@ footer p {
 
 .tryouts-open-message p {
   margin: 0;
-  color: #155724;
+  color: #004085;
 }
 
 .safety-notice {
@@ -553,6 +574,12 @@ footer p {
     padding: 100px 15px 60px 15px; /* Top padding for nav, bottom for footer */
     min-height: auto; /* Remove fixed height to prevent overflow */
     justify-content: flex-start;
+  }
+
+  /* Home page: keep hero centered and footer at bottom */
+  .home-page .hero-content {
+    padding: 40px 15px 60px 15px;
+    justify-content: center;
   }
   
   .hero-title {
