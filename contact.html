@@ -12,7 +12,7 @@
   <nav>
     <div class="nav-container">
       <div class="logo-container">
-        <img src="images/croppedprofbctc.png" alt="Badger Competitive Tennis Club Logo" class="logo-img" />
+        <a href="index.html"><img src="images/croppedprofbctc.png" alt="Badger Competitive Tennis Club Logo" class="logo-img" /></a>
         <a href="index.html"><h1 class="logo">Badger Competitive Tennis Club</h1></a>
       </div>
       <ul>
@@ -26,6 +26,8 @@
   <main class="content">
     <div class="contact-container">
       <h2>Contact Us</h2>
+      
+      <div id="contact-form-message" class="form-message" style="display: none;"></div>
       
       <form id="contact-form" class="contact-form">
         <div class="form-row">
@@ -64,6 +66,70 @@
   <footer>
     <p>© 2026 Badger Competitive Tennis Club</p>
   </footer>
+
+  <script>
+    // Reuse the same Google Apps Script Web App URL used for tryouts
+    const CONTACT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby381-JP_679bsavAkcEc2z4YPvTLRYl5DLGgSQFJ8qFnnXF-ee2gLwziwpXYOBNTDL8w/exec';
+
+    const contactForm = document.getElementById('contact-form');
+    const contactMessageDiv = document.getElementById('contact-form-message');
+    const contactSubmitBtn = contactForm.querySelector('button[type="submit"]');
+
+    function showContactMessage(text, isError = false) {
+      contactMessageDiv.textContent = text;
+      contactMessageDiv.className = 'form-message ' + (isError ? 'error' : 'success');
+      contactMessageDiv.style.display = 'block';
+      contactMessageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+      if (!isError) {
+        setTimeout(() => {
+          contactMessageDiv.style.display = 'none';
+        }, 5000);
+      }
+    }
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (CONTACT_SCRIPT_URL === 'YOUR_GOOGLE_SCRIPT_URL_HERE') {
+        showContactMessage('Error: Form is not configured. Please contact the administrator.', true);
+        return;
+      }
+
+      contactSubmitBtn.disabled = true;
+      contactSubmitBtn.textContent = 'Submitting...';
+
+      const formData = new FormData(contactForm);
+      const data = {
+        type: 'contact',
+        firstName: formData.get('first-name'),
+        lastName: formData.get('last-name'),
+        email: formData.get('contact-email'),
+        message: formData.get('message')
+      };
+
+      try {
+        await fetch(CONTACT_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+          redirect: 'follow'
+        });
+
+        showContactMessage('Thank you! Your message has been sent.', false);
+        contactForm.reset();
+      } catch (error) {
+        console.error('Contact form error:', error);
+        showContactMessage('There was an error sending your message. Please try again or email us directly.', true);
+      } finally {
+        contactSubmitBtn.disabled = false;
+        contactSubmitBtn.textContent = 'Submit';
+      }
+    });
+  </script>
 
 </body>
 </html>

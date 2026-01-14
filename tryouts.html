@@ -12,7 +12,7 @@
   <nav>
     <div class="nav-container">
       <div class="logo-container">
-        <img src="images/croppedprofbctc.png" alt="Badger Competitive Tennis Club Logo" class="logo-img" />
+        <a href="index.html"><img src="images/croppedprofbctc.png" alt="Badger Competitive Tennis Club Logo" class="logo-img" /></a>
         <a href="index.html"><h1 class="logo">Badger Competitive Tennis Club</h1></a>
       </div>
       <ul>
@@ -31,6 +31,8 @@
       <div class="tryouts-open-message">
         <p><strong>Tryouts are now open!</strong> Fill out this form to sign up.</p>
       </div>
+      
+      <div id="form-message" class="form-message" style="display: none;"></div>
       
       <form id="tryout-form" class="tryout-form">
         <div class="safety-notice">
@@ -58,7 +60,7 @@
           <input type="text" id="favorite-player" name="favorite-player">
         </div>
         
-        <button type="submit" class="submit-button">Submit</button>
+        <button type="submit" class="submit-button" id="submit-btn">Submit</button>
       </form>
     </div>
   </main>
@@ -66,6 +68,79 @@
   <footer>
     <p>© 2026 Badger Competitive Tennis Club</p>
   </footer>
+
+  <script>
+    // Replace this URL with your Google Apps Script Web App URL after deployment
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby381-JP_679bsavAkcEc2z4YPvTLRYl5DLGgSQFJ8qFnnXF-ee2gLwziwpXYOBNTDL8w/exec';
+    
+    const form = document.getElementById('tryout-form');
+    const messageDiv = document.getElementById('form-message');
+    const submitBtn = document.getElementById('submit-btn');
+    
+    function showMessage(text, isError = false) {
+      messageDiv.textContent = text;
+      messageDiv.className = 'form-message ' + (isError ? 'error' : 'success');
+      messageDiv.style.display = 'block';
+      
+      // Scroll to message
+      messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      
+      // Hide message after 5 seconds for success messages
+      if (!isError) {
+        setTimeout(() => {
+          messageDiv.style.display = 'none';
+        }, 5000);
+      }
+    }
+    
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Check if Google Script URL is configured
+      if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_SCRIPT_URL_HERE') {
+        showMessage('Error: Form is not configured. Please contact the administrator.', true);
+        return;
+      }
+      
+      // Disable submit button
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+      
+      // Get form data
+      const formData = new FormData(form);
+      const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        utr: formData.get('utr'),
+        favoritePlayer: formData.get('favorite-player') || ''
+      };
+      
+      try {
+        // Google Apps Script Web Apps require no-cors mode and handle redirects
+        const response = await fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+          redirect: 'follow'
+        });
+        
+        // With no-cors mode, we can't read the response, but the submission should work
+        // The Google Script will handle the actual data storage
+        showMessage('Thank you! Your tryout signup has been submitted successfully.');
+        form.reset();
+        
+      } catch (error) {
+        console.error('Error:', error);
+        showMessage('There was an error submitting your form. Please try again or contact us directly.', true);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit';
+      }
+    });
+  </script>
 
 </body>
 </html>
