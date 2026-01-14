@@ -547,29 +547,31 @@ footer p {
 
   .nav-container {
     width: 100%;
-    padding: 0 5%; /* Fixed margin right and left in percent */
+    padding: 0 4%; /* Slightly less side padding to gain space */
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-    gap: 10px;
+    gap: 8px; /* Reduced gap */
+    flex-wrap: nowrap; /* CRITICAL: Force items to stay on one line */
   }
 
   .logo-container {
-    flex-shrink: 0;
+    flex-shrink: 0; /* Don't let the logo get squeezed */
   }
 
   nav ul {
     display: flex;
-    gap: clamp(5px, 2vw, 15px); /* Dynamic gap */
+    gap: clamp(4px, 1.5vw, 12px); /* Tighter fluid gap */
     list-style: none;
     flex-wrap: nowrap;
     align-items: center;
+    flex-shrink: 1; /* Let the tabs shrink slightly if the screen is tiny */
   }
 
   nav a {
-    /* Use clamp for fluid font size that gets smaller if space is tight */
-    font-size: clamp(1rem, 5.5vw, 1.8rem); 
+    /* Slightly safer clamp range to prevent overflow in narrow app-browsers like Instagram */
+    font-size: clamp(0.95rem, 4.5vw, 1.35rem); 
     padding: 8px 4px;
     white-space: nowrap;
     font-weight: bold;
