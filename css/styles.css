@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
 @font-face {
   font-family: 'Cabinet Grotesk';
   src: url('../fonts/CabinetGrotesk-Thin.otf') format('opentype');
@@ -74,6 +80,7 @@ body {
   height: 100vh;
   overflow: hidden;
   z-index: 1;
+  max-width: 100vw;
 }
 
 .background-video {
@@ -185,6 +192,9 @@ nav a:hover {
   text-align: center;
   background: transparent;
   padding: 40px 20px;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
 }
 
 .hero-title {
@@ -194,6 +204,8 @@ nav a:hover {
   margin-bottom: 40px;
   line-height: 1.2;
   max-width: 80%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .tryouts-button {
@@ -240,6 +252,8 @@ nav a:hover {
   background: rgba(247, 247, 247, 0.95);
   padding: 20px;
   border-radius: 8px;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 footer {
@@ -247,6 +261,16 @@ footer {
   padding: 20px;
   background: #ddd;
   margin-top: 40px;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+footer p {
+  color: #333;
+  margin: 0;
+  font-size: 1rem;
 }
 
 .gallery {
@@ -490,14 +514,67 @@ footer {
 }
 
 @media (max-width: 768px) {
+  /* Navbar mobile styles */
+  .logo {
+    display: none; /* Hide the title on mobile */
+  }
+  
+  .logo-img {
+    height: 60px; /* Make logo bigger on mobile */
+    width: auto;
+    max-width: 100%;
+  }
+  
+  nav ul {
+    gap: 10px; /* Reduce gap to prevent overflow */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+  }
+  
+  nav a {
+    font-size: 1.2rem; /* Slightly smaller to prevent overflow */
+    padding: 8px 12px; /* Reduce padding */
+    white-space: nowrap;
+  }
+  
+  .nav-container {
+    width: 100%; /* Full width on mobile */
+    padding: 0 15px; /* Add padding instead */
+    box-sizing: border-box;
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 10px;
+  }
+  
+  .logo-container {
+    flex-shrink: 0;
+  }
+  
+  /* Hero content mobile styles */
+  .hero-content {
+    padding: 100px 15px 60px 15px; /* Top padding for nav, bottom for footer */
+    min-height: auto; /* Remove fixed height to prevent overflow */
+    justify-content: flex-start;
+  }
+  
   .hero-title {
-    font-size: 2.5rem;
-    padding: 0 20px;
+    font-size: 2.5rem; /* Reduce size to prevent overflow */
+    padding: 0 10px;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin-bottom: 30px;
   }
   
   .tryouts-button {
-    font-size: 1rem;
-    padding: 15px 30px;
+    font-size: 1.2rem; /* Slightly smaller to prevent overflow */
+    padding: 18px 30px; /* Reduce padding */
+    max-width: calc(100% - 30px); /* Ensure it fits */
+    box-sizing: border-box;
+  }
+  
+  .content {
+    width: 100%;
+    padding: 15px;
+    margin: 20px 0;
   }
   
   .form-container h2 {
@@ -507,11 +584,14 @@ footer {
   .form-group input[type="text"],
   .form-group input[type="email"] {
     font-size: 0.95rem;
+    max-width: 100%;
+    box-sizing: border-box;
   }
   
   .submit-button {
     width: 100%;
     padding: 16px;
+    box-sizing: border-box;
   }
   
   .contact-container h2 {
@@ -533,40 +613,16 @@ footer {
   
   .form-group textarea {
     font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 600px) {
-  /* Hide the title on mobile */
-  .logo {
-    display: none;
+    max-width: 100%;
+    box-sizing: border-box;
   }
   
-  /* Make logo icon bigger */
-  .logo-img {
-    height: 60px;
-    padding-right: 0;
-  }
-  
-  /* Make nav buttons bigger */
-  nav a {
-    font-size: 1.4rem;
-    padding: 10px 15px;
-  }
-  
-  nav ul {
-    gap: 10px;
-  }
-  
-  /* Make hero title bigger */
-  .hero-title {
-    font-size: 3rem;
-    padding: 0 20px;
-  }
-  
-  /* Make tryouts button bigger */
-  .tryouts-button {
-    font-size: 1.4rem;
-    padding: 20px 40px;
+  footer {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 15px;
+    margin-top: 0; /* Remove top margin to keep footer close to content */
+    position: relative;
+    z-index: 10;
   }
 }
