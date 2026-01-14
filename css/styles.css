@@ -535,38 +535,54 @@ footer p {
 }
 
 @media (max-width: 768px) {
-  /* Navbar mobile styles */
   .logo {
-    display: none; /* Hide the title on mobile */
+    display: none;
   }
   
   .logo-img {
-    height: 60px; /* Make logo bigger on mobile */
+    height: 60px;
     width: auto;
-    max-width: 100%;
+    flex-shrink: 0;
   }
-  
-  nav ul {
-    gap: 10px; /* Reduce gap to prevent overflow */
-    flex-wrap: wrap; /* Allow wrapping if needed */
-  }
-  
-  nav a {
-    font-size: 1.2rem; /* Slightly smaller to prevent overflow */
-    padding: 8px 12px; /* Reduce padding */
-    white-space: nowrap;
-  }
-  
+
   .nav-container {
-    width: 100%; /* Full width on mobile */
-    padding: 0 15px; /* Add padding instead */
+    width: 100%;
+    padding: 0 5%; /* Fixed margin right and left in percent */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     box-sizing: border-box;
-    flex-wrap: wrap; /* Allow wrapping */
     gap: 10px;
   }
-  
+
   .logo-container {
     flex-shrink: 0;
+  }
+
+  nav ul {
+    display: flex;
+    gap: clamp(5px, 2vw, 15px); /* Dynamic gap */
+    list-style: none;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  nav a {
+    /* Use clamp for fluid font size that gets smaller if space is tight */
+    font-size: clamp(1rem, 6vw, 1.8rem); 
+    padding: 8px 4px;
+    white-space: nowrap;
+    font-weight: bold;
+  }
+
+  /* Compact adjustment for very narrow screens where collision is likely */
+  @media (max-width: 380px) {
+    .logo-img {
+      height: 50px;
+    }
+    nav a {
+      font-size: 1rem;
+    }
   }
   
   /* Hero content mobile styles */
