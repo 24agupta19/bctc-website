@@ -569,7 +569,7 @@ footer p {
 
   nav a {
     /* Use clamp for fluid font size that gets smaller if space is tight */
-    font-size: clamp(1rem, 6vw, 1.8rem); 
+    font-size: clamp(1rem, 5.5vw, 1.8rem); 
     padding: 8px 4px;
     white-space: nowrap;
     font-weight: bold;
