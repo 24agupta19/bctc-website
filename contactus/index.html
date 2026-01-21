@@ -6,6 +6,7 @@
   <link rel="icon" type="image/jpeg" href="/images/squarebctc2.jpg">
   <title>Contact - Badger Competitive Tennis Club</title>
   <link rel="stylesheet" href="/css/styles.css" />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body class="contact-page">
 
@@ -27,42 +28,63 @@
     </div>
   </nav>
 
-  <main class="content">
-    <div class="contact-container">
-      <h2>Contact Us</h2>
-      
-      <div id="contact-form-message" class="form-message" style="display: none;"></div>
-      
-      <form id="contact-form" class="contact-form">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="first-name">First Name</label>
-            <input type="text" id="first-name" name="first-name" required>
+  <main class="content" style="background: none; box-shadow: none; padding: 0;">
+    <div class="tryout-registration-card">
+      <!-- Header Section -->
+      <header class="card-header">
+        <h1>Contact Us</h1>
+      </header>
+
+      <!-- Details Strip -->
+      <div class="details-strip">
+        <div class="strip-item">
+          <i class="ph-bold ph-envelope"></i>
+          <div class="strip-text">
+            <span class="strip-label">Email</span>
+            <span class="strip-value"><a href="mailto:badgertennisclub@gmail.com" style="color: inherit; text-decoration: none;">badgertennisclub@gmail.com</a></span>
+          </div>
+        </div>
+        
+        <div class="strip-item">
+          <i class="ph-bold ph-instagram-logo"></i>
+          <div class="strip-text">
+            <span class="strip-label">Instagram</span>
+            <span class="strip-value"><a href="https://instagram.com/badgercompetitivetennis" target="_blank" style="color: inherit; text-decoration: none;">@badgercompetitivetennis</a></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Section -->
+      <div class="form-body">
+        <h2>Send a Message</h2>
+        
+        <div id="contact-form-message" class="form-message" style="display: none;"></div>
+        
+        <form id="contact-form" class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First Name</label>
+              <input type="text" id="first-name" name="first-name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="last-name">Last Name</label>
+              <input type="text" id="last-name" name="last-name" required>
+            </div>
           </div>
           
           <div class="form-group">
-            <label for="last-name">Last Name</label>
-            <input type="text" id="last-name" name="last-name" required>
+            <label for="contact-email">Your Email (wisc.edu)</label>
+            <input type="email" id="contact-email" name="contact-email" placeholder="example@wisc.edu" required>
           </div>
-        </div>
-        
-        <div class="form-group">
-          <label for="contact-email">Your Email (wisc.edu)</label>
-          <input type="email" id="contact-email" name="contact-email" placeholder="example@wisc.edu" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" placeholder="What would you like to say?" required></textarea>
-        </div>
-        
-        <button type="submit" class="submit-button">Submit</button>
-      </form>
-      
-      <div class="contact-info">
-        <h3>Get in Touch</h3>
-        <p><strong>Email:</strong> <a href="mailto:badgertennisclub@gmail.com">badgertennisclub@gmail.com</a></p>
-        <p><strong>Instagram:</strong> <a href="https://instagram.com/badgercompetitivetennis" target="_blank">@badgercompetitivetennis</a></p>
+          
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="What would you like to say?" required></textarea>
+          </div>
+          
+          <button type="submit" class="submit-button" id="contact-submit-btn" style="width: 100%; margin-top: 20px;">Submit</button>
+        </form>
       </div>
     </div>
   </main>
