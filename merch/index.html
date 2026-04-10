@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/jpeg" href="/images/squarebctc2.jpg">
+  <title>Merch - Badger Competitive Tennis Club</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <style>
+    .merch-layout {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+    }
+
+    /* Left: image carousel */
+    .merch-carousel {
+      flex: 1 1 50%;
+      position: relative;
+    }
+
+    .carousel-track {
+      display: flex;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .carousel-track img {
+      width: 100%;
+      flex-shrink: 0;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.85);
+      border: 1px solid #e0e0e0;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: background 0.2s;
+      padding: 0;
+      color: #333;
+      font-size: 2.2rem;
+      line-height: 1;
+      padding-bottom: 3px;
+    }
+
+    .carousel-arrow:hover {
+      background: #fff;
+    }
+
+    .carousel-arrow.prev { left: 8px; }
+    .carousel-arrow.next { right: 8px; }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ccc;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.2s;
+    }
+
+    .carousel-dot.active {
+      background: #0066cc;
+    }
+
+    /* Right: info */
+    .merch-info {
+      flex: 1 1 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .form-body .merch-name {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin: 0;
+      text-align: left;
+    }
+
+    .merch-price {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    .merch-sizes {
+      color: #666;
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .size-chart-label {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #333;
+      margin-bottom: 4px;
+    }
+
+    .size-chart-img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .merch-layout {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body class="tryouts-page">
+
+  <nav>
+    <div class="nav-container">
+      <div class="logo-container">
+        <a href="/home">
+          <img src="/images/croppedprofbctc.png" alt="Badger Competitive Tennis Club Logo" class="logo-img" width="48" height="48" />
+        </a>
+        <a href="/home">
+          <h1 class="logo">Badger Competitive Tennis Club</h1>
+        </a>
+      </div>
+      <ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/tryouts">Tryouts</a></li>
+        <li><a href="/merch">Merch</a></li>
+        <li><a href="/contactus">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="content" style="background: none; box-shadow: none; padding: 0;">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <div class="form-body" style="background: none;">
+        <div class="merch-layout">
+
+          <!-- Left: carousel -->
+          <div class="merch-carousel">
+            <button class="carousel-arrow prev" id="prev-btn">&#8249;</button>
+            <div class="carousel-track" id="carousel-track">
+              <img src="/images/shirtpic1.png" alt="BCTC Shirt Front" />
+              <img src="/images/shirtpic2.png" alt="BCTC Shirt Back" />
+            </div>
+            <button class="carousel-arrow next" id="next-btn">&#8250;</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active" data-index="0"></button>
+              <button class="carousel-dot" data-index="1"></button>
+            </div>
+          </div>
+
+          <!-- Right: info -->
+          <div class="merch-info">
+            <h2 class="merch-name">BCTC Club Shirt</h2>
+            <span class="merch-price">$13.99</span>
+            <p class="merch-sizes">Available in XS, S, M, L, XL, XXL</p>
+
+            <div>
+              <p class="size-chart-label">Size Chart</p>
+              <img src="/images/sizechartbctc.png" alt="Size Chart" class="size-chart-img" />
+            </div>
+
+            <a href="https://undergroundshirts.com/groups/mhr-group-249-store/gildan-heavy-cotton-basic-t-shirt-antique-cherry-red"
+               class="submit-button"
+               style="display: block; text-align: center; text-decoration: none; margin-top: 8px;">
+              Order
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 Badger Competitive Tennis Club</p>
+  </footer>
+
+  <script>
+    const track = document.getElementById('carousel-track');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const total = 2;
+    let current = 0;
+
+    function goTo(index) {
+      current = (index + total) % total;
+      track.scrollTo({ left: track.offsetWidth * current, behavior: 'smooth' });
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    document.getElementById('prev-btn').addEventListener('click', () => goTo(current - 1));
+    document.getElementById('next-btn').addEventListener('click', () => goTo(current + 1));
+    dots.forEach(dot => dot.addEventListener('click', () => goTo(parseInt(dot.dataset.index))));
+
+    let startX = 0;
+    track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+    track.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+    });
+  </script>
+
+</body>
+</html>
