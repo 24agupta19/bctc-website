@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/jpeg" href="/images/squarebctc2.jpg">
+  <link rel="icon" type="image/jpeg" href="../images/squarebctc2.jpg">
   <title>Tryouts - Badger Competitive Tennis Club</title>
-  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body class="tryouts-page">
@@ -13,18 +13,18 @@
   <nav>
     <div class="nav-container">
       <div class="logo-container">
-        <a href="/home">
-          <img src="/images/croppedprofbctc.png" alt="Badger Competitive Tennis Club Logo" class="logo-img" width="48" height="48" />
+        <a href="../home/">
+          <img src="../images/croppedprofbctc.png" alt="Badger Competitive Tennis Club Logo" class="logo-img" width="48" height="48" />
         </a>
-        <a href="/home">
+        <a href="../home/">
           <h1 class="logo">Badger Competitive Tennis Club</h1>
         </a>
       </div>
       <ul>
-        <li><a href="/home">Home</a></li>
-        <li><a href="/tryouts">Tryouts</a></li>
-        <li><a href="/merch">Merch</a></li>
-        <li><a href="/contactus">Contact</a></li>
+        <li><a href="../home/">Home</a></li>
+        <li><a href="../tryouts/">Tryouts</a></li>
+        <li><a href="../merch/">Merch</a></li>
+        <li><a href="../contactus/">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -43,7 +43,7 @@
           <i class="ph-bold ph-calendar"></i>
           <div class="strip-text">
             <span class="strip-label">Date</span>
-            <span class="strip-value">Friday, Sept 25th and Sunday, Sept 27th</span>
+            <span class="strip-value">Sept 25 &amp; 27, 2026</span>
           </div>
         </div>
         
@@ -84,6 +84,18 @@
             <label for="email">Student email (example@wisc.edu) <span class="required">*</span></label>
             <input type="email" id="email" name="email" placeholder="example@wisc.edu" required>
           </div>
+
+          <fieldset class="form-group session-options">
+            <legend>Choose your tryout session <span class="required">*</span></legend>
+            <label class="session-option">
+              <input type="radio" name="tryout-session" value="Friday, Sept 25, 5:00–6:30 PM" required>
+              <span>Friday, Sept 25 <small>5:00–6:30 PM</small></span>
+            </label>
+            <label class="session-option">
+              <input type="radio" name="tryout-session" value="Sunday, Sept 27, 5:00–6:30 PM" required>
+              <span>Sunday, Sept 27 <small>5:00–6:30 PM</small></span>
+            </label>
+          </fieldset>
           
           <div class="form-group">
             <label for="utr">UTR: <span class="required">*</span></label>
@@ -151,6 +163,7 @@
       const data = {
         name: formData.get('name'),
         email: formData.get('email'),
+        tryoutSession: formData.get('tryout-session'),
         utr: formData.get('utr'),
         favoritePlayer: formData.get('favorite-player') || ''
       };

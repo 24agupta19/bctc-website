@@ -66,13 +66,17 @@ function doPost(e) {
       if (!sheet) {
         Logger.log('Creating Tryout Signups sheet');
         sheet = spreadsheet.insertSheet('Tryout Signups');
-        sheet.appendRow(['Timestamp', 'Name', 'Email', 'UTR', 'Favorite Player']);
+        sheet.appendRow(['Timestamp', 'Name', 'Email', 'Tryout Session', 'UTR', 'Favorite Player']);
+      } else if (!sheet.getRange(1, 4).getValue().toString().match(/tryout session/i)) {
+        sheet.insertColumnBefore(4);
+        sheet.getRange(1, 4).setValue('Tryout Session');
       }
       
       const rowData = [
         timestamp,
         data.name || '',
         data.email || '',
+        data.tryoutSession || '',
         data.utr || '',
         data.favoritePlayer || ''
       ];
