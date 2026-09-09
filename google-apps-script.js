@@ -80,6 +80,27 @@ function doPost(e) {
       Logger.log('Appending tryout row: ' + JSON.stringify(rowData));
       sheet.appendRow(rowData);
       Logger.log('Tryout row appended successfully');
+
+      // Send the registrant a confirmation only after their signup is saved.
+      const confirmationBody =
+        'Hi ' + (data.name || 'there') + ',\n\n' +
+        'Your tryout registration for the Badger Competitive Tennis Club has been received.\n\n' +
+        'Tryout session: ' + (data.tryoutSession || 'Not specified') + '\n' +
+        'Email: ' + (data.email || '') + '\n\n' +
+        'If you need to change your registration or have any questions, reply to this email or contact badgertennisclub@gmail.com.\n\n' +
+        'We look forward to seeing you!\n\n' +
+        'Badger Competitive Tennis Club';
+
+      GmailApp.sendEmail(
+        data.email,
+        'Badger Competitive Tennis Club Tryout Registration Confirmation',
+        confirmationBody,
+        {
+          name: 'Badger Competitive Tennis Club',
+          replyTo: 'badgertennisclub@gmail.com'
+        }
+      );
+      Logger.log('Tryout confirmation email sent to ' + data.email);
     }
     
     Logger.log('=== Form Submission Completed Successfully ===');
