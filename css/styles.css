@@ -188,11 +188,6 @@ nav a:hover {
   color: #0066cc;
 }
 
-.rankings-page nav a[aria-current="page"] {
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
 /* Hero Content (Home) */
 .hero-content {
   position: relative;
@@ -510,7 +505,8 @@ nav a:hover {
 
 .rankings-switch {
   position: relative;
-  flex: 0 0 42px;
+  flex: none;
+  width: 42px;
   height: 24px;
   border-radius: 999px;
   background: #8a8a8a;
@@ -742,12 +738,13 @@ footer p {
 
 @media (max-width: 600px) {
   .card-header.rankings-header {
-    grid-template-columns: auto 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     padding-block: 16px;
   }
 
   .rankings-header h1 {
-    grid-column: 1;
     font-size: clamp(1.375rem, 6vw, 2.25rem);
   }
 }
