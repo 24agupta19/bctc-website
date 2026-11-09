@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/jpeg" href="../images/squarebctc2.jpg">
+  <title>Rankings - Badger Competitive Tennis Club</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body class="rankings-page">
+
+  <nav>
+    <div class="nav-container">
+      <div class="logo-container">
+        <a href="../home/">
+          <img src="../images/croppedprofbctc.png" alt="Badger Competitive Tennis Club Logo" class="logo-img" width="48" height="48" />
+        </a>
+        <a href="../home/">
+          <span class="logo">Badger Competitive Tennis Club</span>
+        </a>
+      </div>
+      <ul>
+        <li><a href="../home/">Home</a></li>
+        <li><a href="../tryouts/">Tryouts</a></li>
+        <li><a href="../rankings/" aria-current="page">Rankings</a></li>
+        <li><a href="../merch/">Merch</a></li>
+        <li><a href="../contactus/">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="content">
+    <div class="tryout-registration-card">
+      <header class="card-header rankings-header">
+        <h1>Rankings</h1>
+        <label class="rankings-toggle">
+          Include Arnav
+          <input type="checkbox" role="switch" id="include-arnav" autocomplete="off" aria-controls="ranked-players unranked-players">
+          <span class="rankings-switch" aria-hidden="true"></span>
+        </label>
+      </header>
+      <div class="form-body">
+        <ol class="ranked-list" id="ranked-players">
+          <li>Evan Modak</li>
+          <li>Kevin Chen</li>
+          <li>Andrew Bass</li>
+          <li>Brandon Royalty</li>
+          <li>Mathew Frye</li>
+          <li>Ben Meyer</li>
+          <li>Shay Nelson</li>
+          <li>Ethan Kirkham</li>
+          <li>Mark Miller</li>
+          <li>Kathan Patel</li>
+          <li>Bea Rayel</li>
+          <li>Lahari Gurram</li>
+        </ol>
+
+        <section class="unranked-section" aria-labelledby="unranked-heading">
+          <h2 id="unranked-heading">Unranked</h2>
+          <ul class="unranked-list" id="unranked-players">
+            <li>William Aadland</li>
+            <li>Theron Alfors</li>
+            <li>Ameya Bakshi</li>
+            <li>Varun Balla</li>
+            <li>Isaac Basar</li>
+            <li>Vivian Beld</li>
+            <li>Jack Bell</li>
+            <li>Viraj Bhagat</li>
+            <li>Eric Cao</li>
+            <li>Addison Crane</li>
+            <li>Will Davies</li>
+            <li>Lauren Drexler</li>
+            <li>Juliana Dugo</li>
+            <li>Dylan Elberson</li>
+            <li>Molly Gallagher</li>
+            <li>Jose Rujano Garcia</li>
+            <li>Calvin Gilhoi</li>
+            <li id="arnav-gupta">Arnav Gupta</li>
+            <li>Jaden Gussis</li>
+            <li>Sammy Hammill</li>
+            <li>Sari Hart</li>
+            <li>Emma Hendricks</li>
+            <li>Oliver Hoeme</li>
+            <li>Izzy Jackson</li>
+            <li>Matthew Ko</li>
+            <li>Ruth Krause</li>
+            <li>Marah Lane</li>
+            <li>Christopher Lee</li>
+            <li>Michael Li</li>
+            <li>Peter Linabery</li>
+            <li>Sam Mayer</li>
+            <li>Megan Mayhew</li>
+            <li>Kurt Mihm</li>
+            <li>Zachary Del Mundo</li>
+            <li>Emma Murphy</li>
+            <li>Eli Netz</li>
+            <li>Rachel Olafsson</li>
+            <li>Mariel Pante</li>
+            <li>Yash Patel</li>
+            <li>Brady Ryan</li>
+            <li>Sagarika Sakthivel</li>
+            <li>Lauren Sayers</li>
+            <li>Cole Schneider</li>
+            <li>Joe Schultz</li>
+            <li>Miles Seder</li>
+            <li>Sanjana Shankar</li>
+            <li>Kate Skaar</li>
+            <li>Cora Smith</li>
+            <li>Augie Spence</li>
+            <li>Vibha Srinivasan</li>
+            <li>Alp Tunar</li>
+            <li>Gabe Vasquez</li>
+            <li>Ian Vincent</li>
+            <li>Lila W</li>
+            <li>Travis Wagy</li>
+            <li>Sigrid Wilson</li>
+            <li>Enzo Zarzuela</li>
+            <li>Leo Zarzuela</li>
+            <li>Paul Zelkovic</li>
+            <li>Kevin Zhang</li>
+            <li>Tom Zhou</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 Badger Competitive Tennis Club</p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('include-arnav');
+    const rankedPlayers = document.getElementById('ranked-players');
+    const arnav = document.getElementById('arnav-gupta');
+    const unrankedPlayers = arnav.parentElement;
+    const nextUnrankedPlayer = arnav.nextElementSibling;
+    const unrankedName = arnav.textContent;
+
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
+        arnav.textContent = 'Arnav "Carlos Alcaraz" Gupta';
+        rankedPlayers.prepend(arnav);
+      } else {
+        arnav.textContent = unrankedName;
+        unrankedPlayers.insertBefore(arnav, nextUnrankedPlayer);
+      }
+    });
+  </script>
+</body>
+</html>
